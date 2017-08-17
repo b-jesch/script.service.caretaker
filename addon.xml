@@ -6,10 +6,10 @@
     <extension point="xbmc.service" library="service.py" start="login" />
     <extension point="xbmc.addon.metadata">
         <summary lang="en_gb">Take care with unauthorized Repositories</summary>
-        <description lang="en_gb">This service checks your installed repositories for unauthorized, potentially harmful addons.</description>
+        <description lang="en_gb">This service checks your addon folder for unauthorized, potentially harmful repositories.</description>
         <disclaimer lang="en_gb">Use at your own risk.</disclaimer>
         <summary lang="de_de">Vorsicht vor nicht autorisierten Repositories</summary>
-        <description lang="de_de">Dieser Dienst überprüft die installierten Repositories auf nicht autorisierte, möglicherweise schädliche Addons.</description>
+        <description lang="de_de">Dieser Dienst überprüft den Addon-Ordner auf nicht autorisierte, möglicherweise schädliche Repositories.</description>
         <disclaimer lang="de_de">Benutzung auf eigene Gefahr.</disclaimer>
         <platform>all</platform>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>

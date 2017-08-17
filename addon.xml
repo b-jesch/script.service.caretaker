@@ -4,8 +4,7 @@
         <import addon="xbmc.python" version="2.25.0"/>
         <import addon="xbmc.json" version="7.0.0"/>
     </requires>
-    <!-- <extension point="xbmc.service" library="service.py" start="login" /> -->
-    <extension point="xbmc.python.script" library="service.py" />
+    <extension point="xbmc.service" library="service.py" start="login" />
     <extension point="xbmc.addon.metadata">
         <summary lang="en_gb">Take care with unauthorized Repositories</summary>
         <description lang="en_gb">This service checks your addon folder for unauthorized, potentially harmful repositories.</description>
@@ -18,7 +17,7 @@
         <forum></forum>
         <website></website>
         <email></email>
-        <source></source>
+        <source>https://github.com/b-jesch/script.service.caretaker</source>
         <news></news>
         <assets>
             <icon>resources/icon.png</icon>

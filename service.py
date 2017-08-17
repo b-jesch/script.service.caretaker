@@ -18,29 +18,31 @@ def jsonrpc(query):
     querystring.update(query)
     return json.loads(xbmc.executeJSONRPC(json.dumps(querystring, encoding='utf-8')))
 
-
 def service():
     with open(BLACKLIST) as filehandle:
         blacklisted = filehandle.read().splitlines()
+    xbmc.log('[%s %s] %s blacklisted items loaded' % (__addonid__, __addonversion__, len(blacklisted)), xbmc.LOGDEBUG)
 
     query = {"method": "Addons.GetAddons",
              "params": {"type": "xbmc.addon.repository",
                        "enabled": True,
-                       "properties": ["name"]}
+                       "properties": ["name", "addonid"]}
              }
-
     result = jsonrpc(query)
     if 'addons' in result:
         for addon in result['addons']:
             ai = addon.get('addonid', '')
+            xbmc.log('[%s %s] check if %s in blacklist' % (__addonid__, __addonversion__, ai), xbmc.LOGDEBUG)
             if ai in blacklisted: hits.append(addon)
 
-    if len(hits) == 0:
-        xbmc.log('[%s %s] No potentially harmful repositories found' % (__addonid__, __addonversion__), xbmc.LOGNOTICE)
+        if len(hits) == 0:
+            xbmc.log('[%s %s] No potentially harmful repositories found' % (__addonid__, __addonversion__), xbmc.LOGNOTICE)
+        else:
+            for hit in hits:
+                xbmc.log('[%s %s] Potentially harmful repository found: %s (%s)' % (__addonid__, __addonversion__, hit.get('name', '', hit.get('addonid', ''))), xbmc.LOGNOTICE)
+            xbmcgui.Dialog().notification(__LS__(30011), __LS__(30012), xbmcgui.NOTIFICATION_WARNING)
     else:
-        for hit in hits:
-            xbmc.log('[%s %s] Potentially harmful repository found: %s (%s)' % (__addonid__, __addonversion__, hit.get('name', '', hit.get('addonid', ''))), xbmc.LOGDEBUG)
-        xbmcgui.Dialog().notification(__LS__(30011), __LS__(30012), xbmcgui.NOTIFICATION_WARNING)
+        xbmc.log('[%s %s] Could not execute JSON query' % (__addonid__, __addonversion__), xbmc.LOGFATAL)
 
 if __name__ == '__main__':
     service()

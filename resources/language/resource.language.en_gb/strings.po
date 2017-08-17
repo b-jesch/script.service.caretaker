@@ -1,0 +1,11 @@
+msgctxt "#30010"
+msgid "Caretaker"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Potentially harmful Repository"
+msgstr ""
+
+msgctxt "#30012"
+msgid "You have a potentially harmful Repository installed"
+msgstr ""

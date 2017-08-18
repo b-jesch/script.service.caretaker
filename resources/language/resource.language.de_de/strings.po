@@ -18,13 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgctxt "#30010"
-msgid "Caretaker"
-msgstr ""
+msgid "KN Caretaker"
+msgstr "KN Caretaker"
 
 msgctxt "#30011"
-msgid "Unauthorized Repository"
+msgid "Unauthorized repository"
 msgstr "Unautorisiertes Repository"
 
 msgctxt "#30012"
-msgid "You have a potentially harmful Repository installed"
-msgstr "Du hast ein potenziell schädliches Repository installiert"
+msgid "You have potentially harmful repositories installed"
+msgstr "Du hast potenziell schädliche Repositories installiert"
+
+msgctxt "#30013"
+msgid "You have one or more unauthorized repositories installed. These repositories may contain harmful addons. It's highly recommended to clean up your addon list."
+msgstr "Du hast ein oder mehrere nicht autorisierte Repositories installiert. Diese können schädliche Addons enthalten. Es wird dringend empfohlen, Deine Addon-Liste aufzuräumen."

@@ -1,4 +1,6 @@
+import xbmc
 import xbmcgui
+import xbmcaddon
 import os
 from resources.lib.tools import *
 

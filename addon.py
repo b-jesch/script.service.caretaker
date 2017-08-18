@@ -1,4 +1,5 @@
-import xbmcgui
+import xbmc
+import xbmcaddon
 import os
 import urllib2
 
@@ -65,6 +66,7 @@ def run_script():
 
         if len(bl_installed) == 0:
             writeLog('No potentially harmful repositories found', xbmc.LOGNOTICE)
+            notify(__LS__(30010), __LS__(30014))
         else:
             for bl_repo in bl_installed:
                 writeLog('Potentially harmful repository \'%s\' (%s) found' %

@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgctxt "#30010"
-msgid "KN Caretaker"
+msgid "KN Addon Caretaker"
 msgstr ""
 
 msgctxt "#30011"
@@ -31,4 +31,8 @@ msgstr ""
 
 msgctxt "#30013"
 msgid "You have one or more unauthorized repositories installed. These repositories may contain harmful addons. It's highly recommended to clean up your addon list."
+msgstr ""
+
+msgctxt "#30014"
+msgid "No unauthorized repositories found"
 msgstr ""

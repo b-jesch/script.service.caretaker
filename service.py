@@ -13,8 +13,12 @@ BLACKLIST = os.path.join(xbmc.translatePath(__addonpath__), 'resources', 'data',
 bl_installed = []
 
 def run_service():
-    with open(BLACKLIST, 'r') as filehandle:
-        blacklisted = filehandle.read().splitlines()
+    try:
+        with open(BLACKLIST, 'r') as filehandle:
+            blacklisted = filehandle.read().splitlines()
+    except IOError:
+        writeLog('Could not open blacklist file', xbmc.LOGFATAL)
+        return
 
     writeLog('%s blacklisted repositories loaded' % (len(blacklisted)))
 

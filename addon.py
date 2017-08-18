@@ -46,8 +46,12 @@ def get_addon_list(repo_path, repo_id):
         print e.message
 
 def run_script():
-    with open(BLACKLIST, 'r') as filehandle:
-        blacklisted = filehandle.read().splitlines()
+    try:
+        with open(BLACKLIST, 'r') as filehandle:
+            blacklisted = filehandle.read().splitlines()
+    except IOError:
+        writeLog('Could not open blacklist file', xbmc.LOGFATAL)
+        return
 
     writeLog('%s blacklisted repositories loaded' % (len(blacklisted)))
 

@@ -1,5 +1,5 @@
 # XBMC Media Center language file
-# Addon Name: resource.language.de_de KN Addon Caretaker
+# Addon Name: KN Addon Caretaker
 # Addon id: script.service.caretaker
 # Addon version: 0.0.2
 # Addon Provider: Birger Jesch
@@ -36,3 +36,27 @@ msgstr "Du hast ein oder mehrere nicht autorisierte Repositories installiert. Di
 msgctxt "#30014"
 msgid "No unauthorized repositories found"
 msgstr "Keine unautorisierten Repositories gefunden"
+
+msgctxt "#30030"
+msgid "Update Interval"
+msgstr "Aktualisierungsintervall"
+
+msgctxt "#30031"
+msgid "daily"
+msgstr "täglich"
+
+msgctxt "#30032"
+msgid "weekly"
+msgstr "wöchentlich"
+
+msgctxt "#30033"
+msgid "monthly"
+msgstr "monatlich"
+
+msgctxt "#30035"
+msgid "Check for addons installed with same timestamp"
+msgstr "Suche Addons, die zum selben Zeitpunkt installiert wurden"
+
+msgctxt "#30036"
+msgid "agressive mode"
+msgstr "agressiver Modus"

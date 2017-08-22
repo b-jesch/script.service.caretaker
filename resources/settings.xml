@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="agressive" type="bool" label="30036" default="true" />
+    <setting id="update" type="enum" label="30030" lvalues="30031|30032|30033" default="1" />
+    <setting id="fuzzy" type="bool" label="30035" default="true" />
+</settings>

@@ -58,5 +58,5 @@ msgid "Check for addons installed with same timestamp"
 msgstr ""
 
 msgctxt "#30036"
-msgid "agressive mode"
+msgid "permanent monitoring"
 msgstr ""

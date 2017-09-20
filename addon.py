@@ -40,7 +40,9 @@ def get_addon_list(repo_path, exclude_id):
         remote_addons = xml.getElementsByTagName('addon')
         for addon in remote_addons:
             if addon.getAttribute('id') == exclude_id: continue
-            addon_list.append({'name': addon.getAttribute('name'), 'id': addon.getAttribute('id'), 'version': addon.getAttribute('version')})
+            addon_list.append({'name': addon.getAttribute('name'),
+                               'id': addon.getAttribute('id'),
+                               'version': addon.getAttribute('version')})
 
     except urllib2.URLError, e:
         writeLog('Could not read content of remote repository', xbmc.LOGFATAL)
@@ -54,7 +56,8 @@ def get_addon_list(repo_path, exclude_id):
 def run_script():
 
     if os.path.exists(CT_LOG): os.remove(CT_LOG)
-    writeLog('*** Starting %s V.%s at %s ***' % (__addonname__, __addonversion__, datetime.now().strftime('%d.%m.%Y %H:%M')), extra=CT_LOG)
+    writeLog('*** Starting %s V.%s at %s ***' %
+             (__addonname__, __addonversion__, datetime.now().strftime('%Y-%m-%d %H:%M')), extra=CT_LOG)
     updateBlacklist(BLACKLIST_CACHE, BLACKLIST_REMOTE, BLACKLIST)
     try:
         with open(BLACKLIST_CACHE, 'r') as filehandle:
@@ -63,6 +66,8 @@ def run_script():
         writeLog('Could not open blacklist file', xbmc.LOGFATAL)
         return
 
+    writeLog('Use blacklist with timestamp %s' %
+             (datetime.fromtimestamp(os.path.getmtime(BLACKLIST_CACHE)).strftime('%Y-%m-%d %H:%M')), extra=CT_LOG)
     writeLog('%s blacklisted items loaded' % (len(blacklisted)), extra=CT_LOG)
 
     bl_installed = []
@@ -80,7 +85,7 @@ def run_script():
         for repo in response['addons']:
             if repo.get('addonid', '') in blacklisted:
                 time_installed = int(os.path.getmtime(repo.get('path','')))
-                dt = datetime.fromtimestamp(time_installed).strftime('%d.%m.%Y %H:%M')
+                dt = datetime.fromtimestamp(time_installed).strftime('%Y-%m-%d %H:%M')
                 repo.update({'timestamp': time_installed, 'datetime': dt})
                 bl_installed.append(repo)
 
@@ -102,7 +107,7 @@ def run_script():
 
                         for addon in response['addons']:
                             time_installed = int(os.path.getmtime(addon.get('path', '')))
-                            dt = datetime.fromtimestamp(time_installed).strftime('%d.%m.%Y %H:%M')
+                            dt = datetime.fromtimestamp(time_installed).strftime('%Y-%m-%d %H:%M')
                             addon.update({'timestamp': time_installed, 'datetime': dt})
 
                         # compare and match lists
@@ -111,7 +116,7 @@ def run_script():
                             for bl_addon in bl_addons:
                                 if addon['addonid'] == bl_addon['id'] and addon not in bl_addons_installed:
                                     bl_addons_installed.append(addon)
-                                    writeLog('installed: \'%s\' (%s)' %
+                                    writeLog('installed from repo: \'%s\' (%s)' %
                                              (addon['addonid'], addon['datetime']), xbmc.LOGNOTICE, extra=CT_LOG)
 
                         # fuzzy logic, compare and match timestamps
@@ -119,10 +124,11 @@ def run_script():
                         if getAddonSetting('fuzzy', BOOL):
                             for t_addon in response['addons']:
                                 for bl_addon_installed in bl_addons_installed:
-                                    if abs(t_addon['timestamp'] - bl_addon_installed['timestamp']) < 60 and \
+                                    if abs(t_addon['timestamp'] - bl_addon_installed['timestamp']) < \
+                                            getAddonSetting('variation', sType=NUM, multiplicator=60) and \
                                                     t_addon not in bl_addons_installed:
                                         bl_addons_installed.append(t_addon)
-                                        writeLog('installed (ts): \'%s\' (%s)' %
+                                        writeLog('possibly installed (same timestamp): \'%s\' (%s)' %
                                                  (t_addon['addonid'], t_addon['datetime']), xbmc.LOGNOTICE, extra=CT_LOG)
                     else:
                         writeLog('Could not execute JSON query', xbmc.LOGFATAL)

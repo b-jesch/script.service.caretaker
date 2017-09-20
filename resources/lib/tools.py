@@ -12,14 +12,9 @@ __profile__ = xbmc.translatePath(xbmcaddon.Addon().getAddonInfo('profile'))
 
 # Constants
 
-def STRING():
-    return 0
-
-def BOOL():
-    return 1
-
-def NUM():
-    return 2
+STRING = 0
+BOOL = 1
+NUM = 2
 
 def writeLog(message, level=xbmc.LOGDEBUG, extra=None):
     xbmc.log('[%s %s] %s' % (xbmcaddon.Addon().getAddonInfo('id'),

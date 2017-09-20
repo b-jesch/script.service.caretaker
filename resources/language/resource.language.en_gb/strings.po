@@ -1,7 +1,7 @@
 # XBMC Media Center language file
 # Addon Name: KN Addon Caretaker
 # Addon id: script.service.caretaker
-# Addon version: 0.0.2
+# Addon version: 0.0.5
 # Addon Provider: Birger Jesch
 msgid ""
 msgstr ""
@@ -38,7 +38,7 @@ msgid "No unauthorized repositories found"
 msgstr ""
 
 msgctxt "#30030"
-msgid "Update Interval"
+msgid "Blacklist update check"
 msgstr ""
 
 msgctxt "#30031"
@@ -59,4 +59,20 @@ msgstr ""
 
 msgctxt "#30036"
 msgid "permanent monitoring"
+msgstr ""
+
+msgctxt "#30037"
+msgid "max timestamp variation of installation"
+msgstr ""
+
+msgctxt "#30038"
+msgid "1 min"
+msgstr ""
+
+msgctxt "#30039"
+msgid "2 min"
+msgstr ""
+
+msgctxt "#30040"
+msgid "3 min"
 msgstr ""

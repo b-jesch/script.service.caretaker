@@ -1,7 +1,7 @@
 # XBMC Media Center language file
 # Addon Name: KN Addon Caretaker
 # Addon id: script.service.caretaker
-# Addon version: 0.0.2
+# Addon version: 0.0.5
 # Addon Provider: Birger Jesch
 msgid ""
 msgstr ""
@@ -31,15 +31,15 @@ msgstr "Du hast potenziell schädliche Repositories installiert"
 
 msgctxt "#30013"
 msgid "You have one or more unauthorized repositories installed. These repositories may contain harmful addons. It's highly recommended to clean up your addon list."
-msgstr "Du hast ein oder mehrere nicht autorisierte Repositories installiert. Diese können schädliche Addons enthalten. Es wird dringend empfohlen, Deine Addon-Liste aufzuräumen."
+msgstr "Du hast ein oder mehrere nicht autorisierte Repositories installiert. Diese können schädliche Addons enthalten. Es wird dringend empfohlen, Deine Addon-Liste zu bereinigen."
 
 msgctxt "#30014"
 msgid "No unauthorized repositories found"
 msgstr "Keine unautorisierten Repositories gefunden"
 
 msgctxt "#30030"
-msgid "Update Interval"
-msgstr "Aktualisierungsintervall"
+msgid "Blacklist update check"
+msgstr "Aktualisierungsintervall Blacklist"
 
 msgctxt "#30031"
 msgid "daily"
@@ -60,3 +60,19 @@ msgstr "Suche Addons, die zum selben Zeitpunkt installiert wurden"
 msgctxt "#30036"
 msgid "permanent monitoring"
 msgstr "permanente Überwachung"
+
+msgctxt "#30037"
+msgid "max timestamp variation of installation"
+msgstr "maximale Streuung des Installationszeitpunktes"
+
+msgctxt "#30038"
+msgid "1 min"
+msgstr "1 min"
+
+msgctxt "#30039"
+msgid "2 min"
+msgstr "2 min"
+
+msgctxt "#30040"
+msgid "3 min"
+msgstr "3 min"

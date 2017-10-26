@@ -1,3 +1,4 @@
+import xbmcgui
 from resources.lib.tools import *
 
 __addonid__ = xbmcaddon.Addon().getAddonInfo('id')
@@ -41,8 +42,10 @@ def run_service():
                 writeLog('Repository \'%s\' found' %
                          (bl_repo.get('addonid', '')), xbmc.LOGNOTICE)
             notify(__LS__(30011), __LS__(30012), icon=xbmcgui.NOTIFICATION_WARNING)
+            xbmcgui.Window(10000).setProperty('script.service.caretaker.found.blacklisted', 'true')
         else:
             writeLog('No potentially harmful repositories found', xbmc.LOGNOTICE)
+            xbmcgui.Window(10000).setProperty('script.service.caretaker.found.blacklisted', 'false')
 
     else:
         writeLog('Could not execute JSON query', xbmc.LOGFATAL)

@@ -11,7 +11,7 @@
         <description lang="en_gb">This service checks your addon folder for possibly unauthorized, potentially harmful repositories and informs the user about these. Detailed informations are logged into the caretaker.log at the same folder as your kodi.log. Repository vendors: If you think your repository is mistakenly blacklisted, please inform the vendor of this addon.</description>
         <disclaimer lang="en_gb">Use at your own risk.</disclaimer>
         <summary lang="de_de">Vorsicht vor nicht autorisierten Repositories</summary>
-        <description lang="de_de">Dieser Dienst überprüft den Addon-Ordner auf möglicherweise nicht autorisierte, potentiell schädliche Repositories und informiert den Nutzer darüber. Detaillierte Informationen werden im caretaker.log protokolliert. Die Logdatei befindet sich im selben Verzeichnis wie das kodi.log. Repository Anbieter: Sollte Euer Repository fälschlicherweise auf der Blacklist erscheinen, informiert bitte den Anbieter dieses Addons.</description>
+        <description lang="de_de">Dieser Dienst überprüft den Addon-Ordner auf möglicherweise nicht autorisierte, potentiell schädliche Repositories und informiert den Nutzer darüber. Detaillierte Informationen werden im caretaker.log protokolliert, welche sich im Log-Verzeichnis von Kodi befindet. Repository Provider: Sollte Euer Repository fälschlicherweise auf der Blacklist erscheinen, informiert bitte den Anbieter dieses Addons.</description>
         <disclaimer lang="de_de">Benutzung auf eigene Gefahr.</disclaimer>
         <platform>all</platform>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>

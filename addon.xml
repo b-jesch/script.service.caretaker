@@ -8,7 +8,7 @@
     <extension point="xbmc.python.script" library="addon.py"/>
     <extension point="xbmc.addon.metadata">
         <summary lang="en_gb">Take care with unauthorized Repositories</summary>
-        <description lang="en_gb">This service checks your addon folder for possibly unauthorized, potentially harmful repositories and informs the user about these. Detailed informations are logged into the caretaker.log at the same folder as your kodi.log. Repository vendors: If you think your repository is mistakenly blacklisted, please inform the vendor of this addon.</description>
+        <description lang="en_gb">This service checks your addon folder for possibly unauthorized, potentially harmful repositories and informs the user about these. Detailed informations are logged into the caretaker.log at the same folder as your kodi.log. Repository providers: If you think your repository is mistakenly blacklisted, please inform the vendor of this addon.</description>
         <disclaimer lang="en_gb">Use at your own risk.</disclaimer>
         <summary lang="de_de">Vorsicht vor nicht autorisierten Repositories</summary>
         <description lang="de_de">Dieser Dienst überprüft den Addon-Ordner auf möglicherweise nicht autorisierte, potentiell schädliche Repositories und informiert den Nutzer darüber. Detaillierte Informationen werden im caretaker.log protokolliert, welche sich im Log-Verzeichnis von Kodi befindet. Repository Provider: Sollte Euer Repository fälschlicherweise auf der Blacklist erscheinen, informiert bitte den Anbieter dieses Addons.</description>

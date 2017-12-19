@@ -2,6 +2,7 @@ from xml.dom import minidom
 from datetime import datetime
 import sys
 from resources.lib.tools import *
+import resources.lib.textviewer as TV
 
 
 def get_addon_list(repo_path, exclude_id):
@@ -32,8 +33,8 @@ def get_addon_list(repo_path, exclude_id):
                                'version': addon.getAttribute('version')})
 
     except urllib2.URLError, e:
-        writeLog('Could not read content of remote repository', xbmc.LOGFATAL)
-        writeLog('%s' % (e.reason), xbmc.LOGFATAL)
+        writeLog('Could not read content of remote repository', xbmc.LOGERROR)
+        writeLog('%s' % (e.reason), xbmc.LOGERROR)
 
     except Exception, e:
         writeLog(e.message, xbmc.LOGERROR)
@@ -50,7 +51,7 @@ def run_script():
         with open(BLACKLIST_CACHE, 'r') as filehandle:
             blacklisted = filehandle.read().splitlines()
     except IOError:
-        writeLog('Could not open blacklist file', xbmc.LOGFATAL)
+        writeLog('Could not open blacklist file', xbmc.LOGERROR)
         return
 
     writeLog('Use blacklist with timestamp %s' %
@@ -103,7 +104,7 @@ def run_script():
                             for bl_addon in bl_addons:
                                 if addon['addonid'] == bl_addon['id'] and addon not in bl_addons_installed:
                                     bl_addons_installed.append(addon)
-                                    writeLog('installed from repo as dependency: \'%s\' (%s)' %
+                                    writeLog('probably installed from repo: \'%s\' (%s)' %
                                              (addon['addonid'], addon['datetime']), xbmc.LOGNOTICE, extra=CT_LOG)
 
                         # fuzzy logic, compare and match timestamps
@@ -115,18 +116,24 @@ def run_script():
                                             getAddonSetting('variation', sType=NUM, multiplicator=60) and \
                                                     t_addon not in bl_addons_installed:
                                         bl_addons_installed.append(t_addon)
-                                        writeLog('possibly installed (same timestamp): \'%s\' (%s)' %
-                                                 (t_addon['addonid'], t_addon['datetime']), xbmc.LOGNOTICE, extra=CT_LOG)
+                                        writeLog('probably installed (same timestamp as %s): \'%s\' (%s)' %
+                                                 (bl_addon_installed['addonid'], t_addon['addonid'],
+                                                  t_addon['datetime']), xbmc.LOGNOTICE, extra=CT_LOG)
                     else:
-                        writeLog('Could not execute JSON query', xbmc.LOGFATAL)
+                        writeLog('Could not execute JSON query', xbmc.LOGERROR)
 
 
-            dialogOk(LS(30010), LS(30013))
+            # dialogOk(LS(30010), LS(30013))
+            tv = TV.textViewer.createTextViewer()
+            with open(CT_LOG, 'r') as text: tv.text = text.read()
+            tv.doModal()
+            tv.close()
+
         else:
             writeLog('No potentially harmful repositories found', xbmc.LOGNOTICE, extra=CT_LOG)
             notify(LS(30010), LS(30014))
     else:
-        writeLog('Could not execute JSON query', xbmc.LOGFATAL)
+        writeLog('Could not execute JSON query', xbmc.LOGERROR)
 
 if __name__ == '__main__':
     try:

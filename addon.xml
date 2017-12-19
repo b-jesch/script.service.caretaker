@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.service.caretaker" name="KN Addon Caretaker" version="0.0.10" provider-name="Birger Jesch">
+<addon id="script.service.caretaker" name="KN Addon Caretaker" version="0.0.11" provider-name="Birger Jesch">
     <requires>
         <import addon="xbmc.python" version="2.25.0"/>
         <import addon="xbmc.json" version="7.0.0"/>
@@ -19,7 +19,7 @@
         <website></website>
         <email>Birger.Jesch@gmail.com</email>
         <source>https://github.com/b-jesch/script.service.caretaker</source>
-        <news></news>
+        <news>Log Window implemented</news>
         <assets>
             <icon>resources/icon.png</icon>
             <fanart></fanart>

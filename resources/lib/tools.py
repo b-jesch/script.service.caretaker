@@ -25,12 +25,12 @@ STRING = 0
 BOOL = 1
 NUM = 2
 
-def writeLog(message, level=xbmc.LOGDEBUG, extra=None):
+def writeLog(message, level=xbmc.LOGDEBUG, extra=None, cr=''):
     xbmc.log('[%s %s] %s' % (xbmcaddon.Addon().getAddonInfo('id'),
                              xbmcaddon.Addon().getAddonInfo('version'),
                              message.encode('utf-8')), level)
     if extra is not None:
-        with open(extra, 'a') as handle: handle.writelines('%s\n' % (message.encode('utf-8')))
+        with open(extra, 'a') as handle: handle.writelines('%s\n%s' % (cr, message.encode('utf-8')))
 
 def jsonrpc(query):
     querystring = {"jsonrpc": "2.0", "id": 1}

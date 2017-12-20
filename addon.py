@@ -56,7 +56,7 @@ def run_script():
 
     writeLog('Use blacklist with timestamp %s' %
              (datetime.fromtimestamp(os.path.getmtime(BLACKLIST_CACHE)).strftime('%Y-%m-%d %H:%M')), extra=CT_LOG)
-    writeLog('%s blacklisted items loaded' % (len(blacklisted)), extra=CT_LOG)
+    writeLog('%s blacklisted items loaded' % (len(blacklisted)), extra=CT_LOG, cr='\n')
 
     bl_installed = []
     bl_addons_installed = []
@@ -69,7 +69,7 @@ def run_script():
 
     response = jsonrpc(query)
     if 'addons' in response:
-        writeLog('Check addon folder for blacklisted repositories', xbmc.LOGNOTICE, extra=CT_LOG)
+        writeLog('Check addon folder for blacklisted repositories', xbmc.LOGNOTICE, extra=CT_LOG, cr='\n')
         for repo in response['addons']:
             if repo.get('addonid', '') in blacklisted:
                 time_installed = int(os.path.getmtime(repo.get('path','')))
@@ -79,7 +79,7 @@ def run_script():
 
         if len(bl_installed) > 0:
             for bl_repo in bl_installed:
-                writeLog('Repository \'%s\' found' % (bl_repo.get('addonid', '')), xbmc.LOGNOTICE, extra=CT_LOG)
+                writeLog('Repository \'%s\' found' % (bl_repo.get('addonid', '')), xbmc.LOGNOTICE, extra=CT_LOG, cr='\n')
 
                 bl_addons = get_addon_list(bl_repo.get('path', ''), bl_repo.get('addonid', ''))
                 if len(bl_addons) > 0:
